@@ -1,6 +1,17 @@
 #!/bin/bash
+# ASCII Art for Purple Theme
+echo -e "\e[35m"  # Set text color to purple
+cat << "EOF"
+  █████╗ ███╗   ██╗ █████╗ ███╗  ██╗ ██████╗ ██████╗ 
+ ██╔══██╗████╗  ██║██╔══██╗████╗ ██║██╔═══██╗██╔══██╗
+ ███████║██╔██╗ ██║███████║██╔██╗██║██║   ██║██████╔╝
+ ██╔══██║██║╚██╗██║██╔══██║██║╚████║██║   ██║██╔═══╝ 
+ ██║  ██║██║ ╚████║██║  ██║██║ ╚███║╚██████╔╝██║     
+ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚══╝ ╚═════╝ ╚═╝     
 
-echo "Select an option:"
+EOF
+echo -e "\e[0m"  # Reset text color
+echo "Select an Panel:"
 echo "1) PuferPanel"
 echo "2) Skyport"
 echo "3) HydraPanel"
@@ -10,23 +21,19 @@ read -p "Enter your choice: " choice
 
 case $choice in
     1)
-        echo "Running Command 1..."
-        # Replace this with your actual command
-        ls
+        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/sp)
         ;;
     2)
-        echo "Running Command 2..."
-        # Replace this with your actual command
-        pwd
+        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/pp)
         ;;
     3)
-        echo "Running Command 3..."
-        # Replace this with your actual command
-        date
+        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/hp)
         ;;
     4)
         echo "Exiting..."
+        sleep 1
         exit 0
+        
         ;;
     *)
         echo "Invalid option. Please try again."
