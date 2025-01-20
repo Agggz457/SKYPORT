@@ -2,6 +2,12 @@
 # ASCII Art for Purple Theme
 echo -e "\e[35m"  # Set text color to purple
 cat << "EOF"
+███    ███  █████   ██████  ███████      ██████  ██    ██ 
+████  ████ ██   ██ ██    ██  ██          ██   ██  ██  ██  
+██ ████ ██ ███████ ██   ███ █████        ██████    ████   
+██  ██  ██ ██   ██ ██    ██ ██           ██   ██    ██    
+██      ██ ██   ██  ██████  ███████      ██████     ██    
+
   █████╗ ███╗   ██╗ █████╗ ███╗  ██╗ ██████╗ ██████╗ 
  ██╔══██╗████╗  ██║██╔══██╗████╗ ██║██╔═══██╗██╔══██╗
  ███████║██╔██╗ ██║███████║██╔██╗██║██║   ██║██████╔╝
@@ -21,10 +27,11 @@ read -p "Enter your choice: " choice
 
 case $choice in
     1)
-        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/sp)
+        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/pp)
+
         ;;
     2)
-        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/pp)
+        bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/sp)
         ;;
     3)
         bash <(curl -s https://raw.githubusercontent.com/Agggz457/SKYPORT/refs/heads/main/hp)
