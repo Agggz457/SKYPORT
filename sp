@@ -37,13 +37,11 @@ case $choice in
 	| sudo tee /etc/apt/sources.list.d/ngrok.list \
 	&& sudo apt update \
 	&& sudo apt install ngrok
-
-        
-        sleep 3
-        sudo apt update
-        sleep 1
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install neofetch nano wget curl -y
+        sudo apt autoremove -y
         sudo apt install -y nodejs git
-        sleep 3
+        sudo apt install npm -y
         git clone https://github.com/achul123/panel5
         cd panel5
         sleep 2
