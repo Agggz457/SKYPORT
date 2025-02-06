@@ -46,88 +46,161 @@ case $choice in
     4)
         echo "installing"
         sleep 1
-#!/bin/bash
+        #!/bin/bash
 
-set -e
 
-echo " █████╗ ███╗   ██╗ █████╗ ███╗  ██╗ ██████╗ ██████╗ "
-echo "██╔══██╗████╗  ██║██╔══██╗████╗ ██║██╔═══██╗██╔══██╗"
-echo "███████║██╔██╗ ██║███████║██╔██╗██║██║   ██║██████╔╝"
-echo "██╔══██║██║╚██╗██║██╔══██║██║╚████║██║   ██║██╔═══╝ "
-echo "██║  ██║██║ ╚████║██║  ██║██║ ╚███║╚██████╔╝██║     "
-echo "╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚══╝ ╚═════╝ ╚═╝     "
-export GITHUB_SOURCE="v1.1.1"
-export SCRIPT_RELEASE="v1.1.1"
-export GITHUB_BASE_URL="https://raw.githubusercontent.com/pterodactyl-installer/pterodactyl-installer"
 
-LOG_PATH="/var/log/pterodactyl-installer.log"
+clear
+apt update
+apt upgrade -y
+apt remove tmux screen -y
+oscheck
+sudo apt update && sudo apt full-upgrade -y && sudo apt dist-upgrade -y
+sudo apt autoremove --purge -y && sudo apt clean && sudo update-initramfs -u -k all
+sudo update-grub
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+echo "wait 3 sec"
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+sleep 2
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+echo "wait 2 sec"
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+sleep 1
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+echo "wait 1 sec"
 
-# check for curl
-if ! [ -x "$(command -v curl)" ]; then
-  echo "* curl is required in order for this script to work."
-  echo "* install using apt (Debian and derivatives) or yum/dnf (CentOS)"
-  exit 1
-fi
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
+sleep 1
+echo done
+apt install systemctl -y
+apt install systemd -y
+apt install nano -y
+apt autoremove -y
+apt clean -y
+apt remove htop -y
+apt purge htop -y
+apt autoremove
+sudo systemctl restart cron
+echo "vm.overcommit_memory=2" | sudo tee -a /etc/sysctl.conf
+echo "vm.panic_on_oom=1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+echo "vm.overcommit_memory=2" | sudo tee -a /etc/sysctl.conf
+echo "vm.panic_on_oom=1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+systemctl restart mysql
+ps aux | awk '{ if ($8 == "Z") print $2 }'
+ps aux --sort=-%mem | head -10
+ps aux --sort=-%cpu | head -10
+systemctl restart apache2
+systemctl restart mysql
+systemctl restart minecraft
+journalctl -xe | tail -50
+dmesg | tail -50
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sleep 3
+apt remove top -y
+apt autoremove -y
+apt clean -y
+uptime
+free -m
+sleep 1
+sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw deny from MALICIOUS_IP
+sudo apt install zram-tools
+echo -e "vm.swappiness=10\nvm.vfs_cache_pressure=50\nvm.dirty_ratio=60" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+sudo apt autoremove -y
+sudo apt clean
+sudo rm -rf /var/log/*
+echo -e "net.core.rmem_max=16777216\nnet.core.wmem_max=16777216\nnet.ipv4.tcp_rmem=4096 87380 16777216\nnet.ipv4.tcp_wmem=4096 87380 16777216\nnet.ipv4.tcp_fin_timeout=15" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+echo "net.ipv6.conf.all.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+sudo apt remove sysstat -y
+apt autoremove -y
+clear && clear
+apt autoremove -y
+apt clean -y
+echo 1x
+echo dn
+systemctl restart cron
+systemctl
+sleep 1
+echo "Wait"
+sleep 3
+echo "Installing Pterodactyl"
+read -p "Do you want to continue? (y/n): " choice
 
-# Always remove lib.sh, before downloading it
-[ -f /tmp/lib.sh ] && rm -rf /tmp/lib.sh
-curl -sSL -o /tmp/lib.sh "$GITHUB_BASE_URL"/master/lib/lib.sh
-# shellcheck source=lib/lib.sh
-source /tmp/lib.sh
+case "$choice" in
+    y|Y|yes|YES|Yes)
+        echo "Proceeding..."
+        sleep 3
+        bash <(curl -s https://pterodactyl-installer.se)
+        clear
 
-execute() {
-  echo -e "\n\n* pterodactyl-installer $(date) \n\n" >>$LOG_PATH
 
-  [[ "$1" == *"canary"* ]] && export GITHUB_SOURCE="master" && export SCRIPT_RELEASE="canary"
-  update_lib_source
-  run_ui "${1//_canary/}" |& tee -a $LOG_PATH
+        ;;
+    n|N|no|NO|No)
+        echo "Exiting..."
+        clear
+        exit 1
 
-  if [[ -n $2 ]]; then
-    echo -e -n "* Installation of $1 completed. Do you want to proceed to $2 installation? (y/N): "
-    read -r CONFIRM
-    if [[ "$CONFIRM" =~ [Yy] ]]; then
-      execute "$2"
-    else
-      error "Installation of $2 aborted."
-      exit 1
-    fi
-  fi
-}
 
-welcome ""
+        ;;
+    *)
+        echo "Invalid.Please enter Yes or No."
 
-done=false
-while [ "$done" == false ]; do
-  options=(
-    "Install the panel"
-    "Install Wings"
-    "Install both [0] and [1] on the same machine (wings script runs after panel)"
-  )
 
-  actions=(
-    "panel"
-    "wings"
-    "panel;wings"
-  )
+        ;;
 
-  output "What would you like to do?"
+esac
 
-  for i in "${!options[@]}"; do
-    output "[$i] ${options[$i]}"
-  done
 
-  echo -n "* Input 0-$((${#actions[@]} - 1)): "
-  read -r action
-
-  [ -z "$action" ] && error "Input is required" && continue
-
-  valid_input=("$(for ((i = 0; i <= ${#actions[@]} - 1; i += 1)); do echo "${i}"; done)")
-  [[ ! " ${valid_input[*]} " =~ ${action} ]] && error "Invalid option"
-  [[ " ${valid_input[*]} " =~ ${action} ]] && done=true && IFS=";" read -r i1 i2 <<<"${actions[$action]}" && execute "$i1" "$i2"
-done
-
-# Remove lib.sh, so next time the script is run the, newest version is downloaded.
-rm -rf /tmp/lib.sh
         ;;
     *)
         echo "Invalid option. Please try again."
