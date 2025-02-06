@@ -47,9 +47,10 @@ case $choice in
         echo "installing"
         sleep 1
         #!/bin/bash
+        
 
 
-
+apt install ufw -y
 clear
 apt update
 apt upgrade -y
@@ -169,7 +170,25 @@ apt clean -y
 echo 1x
 echo dn
 systemctl restart cron
-systemctl
+echo ufw deny from MALICIOUS_IP
+sudo apt install zram-tools
+echo -e "vm.swappiness=10\nvm.vfs_cache_pressure=50\nvm.dirty_ratio=60" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+sudo apt autoremove -y
+sudo apt clean
+sudo rm -rf /var/log/*
+echo -e "net.core.rmem_max=16777216\nnet.core.wmem_max=16777216\nnet.ipv4.tcp_rmem=4096 87380 16777216\nnet.ipv4.tcp_wmem=4096 87380 16777216\nnet.ipv4.tcp_fin_timeout=15" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+echo "net.ipv6.conf.all.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+sudo apt remove sysstat -y
+apt autoremove -y
+clear && clear
+apt autoremove -y
+apt clean -y
 sleep 1
 echo "Wait"
 sleep 3
