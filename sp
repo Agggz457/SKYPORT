@@ -10,19 +10,6 @@ cat << "EOF"
                                             
 EOF
 echo -e "\e[0m"  # Reset text color
-
-
-
-sleep 2
-echo "Select an option:"
-echo "1) Install Panel"
-echo "2) Install Node"
-echo "3) Exit"
-
-read -p "Enter your choice: " choice
-
-case $choice in
-    1)
         echo "Installing..."
         sleep 2
         # Replace this with your actual command
@@ -69,8 +56,17 @@ case $choice in
         
         node .
         echo "Done"
-        ;;
-    2)
+echo "Wonna install node of Skyport:"
+echo "1) Yes"
+echo "2) NO"
+read -p "Enter your choice: " choice
+sleep 2
+
+
+
+
+case $choice in
+    1)
         echo "Installing..."
         sudo mkdir -p /etc/apt/keyrings
         curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
