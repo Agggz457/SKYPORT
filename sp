@@ -54,7 +54,8 @@ echo -e "\e[0m"  # Reset text color
         echo "Running the command: $user_command"
         eval "$user_command"
         
-        node .
+        npm i pm2
+        pm2 start index.js
         echo "Done"
 echo "Wonna install node of Skyport:"
 echo "1) Yes"
@@ -93,7 +94,8 @@ case $choice in
 
         clear 
         sleep 1
-        node .
+        npm i pm2
+        pm2 start index.js
 
 
         
