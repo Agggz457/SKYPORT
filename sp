@@ -40,24 +40,10 @@ echo -e "\e[0m"  # Reset text color
         npm run createUser
         sleep 3
         clear
-       
-        echo "Paste Your Ngrok AuthToken:"
-        read -r config
-
-        # Confirm the configuration
-        echo "Configuration saved: $config"
-
-        # Prompt the user to enter a command
-        echo "Paste Your Ngrok AuthToken command:"
-        read -r user_command
-        # Run the command
-        echo "Running the command: $user_command"
-        eval "$user_command"
-        
         npm i pm2
         pm2 start index.js
         echo "Done"
-echo "Wonna install node of Skyport:"
+echo "Panel compeleted.Wonna install node of Skyport:"
 echo "1) Yes"
 echo "2) NO"
 read -p "Enter your choice: " choice
