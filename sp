@@ -28,6 +28,19 @@ echo -e "\e[0m"  # Reset text color
         sudo apt install neofetch nano wget curl -y
         sudo apt autoremove -y
         sudo apt install -y nodejs git
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+$HOME/.nvm.
+
+ $ export NVM_DIR="$HOME/.nvm" && (
+     git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+     cd "$NVM_DIR"
+     git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+   ) && \. "$NVM_DIR/nvm.sh
+ $ nano ~/.bashrc
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source ~/.bashrc
+
         sudo apt install npm -y
         git clone https://github.com/achul123/panel5
         cd panel5
@@ -41,6 +54,8 @@ echo -e "\e[0m"  # Reset text color
         sleep 3
         clear
         npm i pm2
+npm install -g pm2
+
         pm2 start index.js
         echo "Done"
 echo "Panel compeleted.Wonna install node of Skyport:"
