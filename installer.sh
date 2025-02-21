@@ -51,22 +51,29 @@ echo -e "\e[0m"  # Reset text color
         echo "Installing..."
         sleep 2
         # Replace this with your actual command
-        sudo mkdir -p /etc/apt/keyrings
+         mkdir -p /etc/apt/keyrings
         curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
         echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
         clear
 
-        curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
-	| sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
-	&& echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
-	| sudo tee /etc/apt/sources.list.d/ngrok.list \
-	&& sudo apt update \
-	&& sudo apt install ngrok
-        sudo apt update && sudo apt upgrade -y
-        sudo apt install neofetch nano wget curl -y
-        sudo apt autoremove -y
-        sudo apt install -y nodejs git
-        sudo apt install npm -y
+        apt update && sudo apt upgrade -y
+        apt install neofetch nano wget curl -y
+        apt autoremove -y
+        apt install -y nodejs git
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+$HOME/.nvm.
+
+ $ export NVM_DIR="$HOME/.nvm" && (
+     git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+     cd "$NVM_DIR"
+     git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+   ) && \. "$NVM_DIR/nvm.sh
+ $ nano ~/.bashrc
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source ~/.bashrc
+
+        apt install npm -y
         git clone https://github.com/achul123/panel5
         cd panel5
         sleep 2
@@ -79,6 +86,8 @@ echo -e "\e[0m"  # Reset text color
         sleep 3
         clear
         npm i pm2
+npm install -g pm2
+
         pm2 start index.js
         echo "Done"
 echo "Panel compeleted.Wonna install node of Skyport:"
