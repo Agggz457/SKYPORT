@@ -11,10 +11,9 @@ EOF
 echo -e "\e[0m"  # Reset text color
 Echo "installing puferpanel"
         sudo apt update && sudo apt upgrade -y
-        sudo apt install neofetch nano wget curl -y
+        sudo apt install nano wget curl -y
         sudo apt autoremove -y
-        sudo apt install -y nodejs git
-        sudo apt install npm -y
+        sudo apt clean
         curl -s https://packagecloud.io/install/repositories/pufferpanel/pufferpanel/script.deb.sh | sudo bash
         sudo apt-get install pufferpanel
         echo "Creating User"
